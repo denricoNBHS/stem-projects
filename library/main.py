@@ -1,4 +1,4 @@
-from library import *
+import library as lib
 
 # Main loop
 while True:
