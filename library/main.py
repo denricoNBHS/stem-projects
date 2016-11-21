@@ -1,4 +1,4 @@
-import library as lib
+import library.sol as lib
 
 # Main loop
 while True:
