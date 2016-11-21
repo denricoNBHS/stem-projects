@@ -46,7 +46,7 @@ def add_book(filename, isbn, title, author):
     # In the space below, write code that adds the key isbn
     # and the value {'title':title, 'author':author}
     # to the books object.
-    print("I did something. Can I get an A now?")
+
     # Finally, write code that writes the new data to the library
     # Do we need to return anything?
     pass
