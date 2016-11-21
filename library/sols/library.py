@@ -7,7 +7,7 @@ def open_library(filename):
     books = {}
 
     # Open the library file encoded in JSON and load it into the data object
-    # We use the with keyword so we don't have to explicitly close the file
+    # We use the "with" keyword so we don't have to explicitly close the file
     # later.
     #
     # Alternatively you could use:
@@ -39,9 +39,7 @@ def open_library(filename):
 
 def add_book(filename, isbn, title, author):
     # Here's a start
-    data = open_library(filename)
-    students = data[0]
-    books = data[1]
+    students, books = open_library(filename)
 
     # Now how can we add books to the data?
     # In the space below, write code that adds the key isbn
@@ -56,11 +54,8 @@ def add_book(filename, isbn, title, author):
 
 
 def remove_book(filename, isbn):
-    data = open_library(filename)
-    students = data[0]
-    books = data[1]
-
-    # How can we *remove* an item from a dictionary?
+    students, books = open_library(filename)
+    
     # Write code to delete the book keyed by isbn in the space below
     if isbn in books.keys():
         del(books[isbn])
@@ -70,37 +65,47 @@ def remove_book(filename, isbn):
         json.dump({"students":students, "books":books}, f)
 
 
-
 def check_out(filename, isbn, s_id):
-    data = open_library(filename)
-    books = data[1]
+    students, books = open_library(filename)
 
     # Find a way to mark a book as checked out. Be sure to associate
     # the book with the student who borrowed it!
-
+    books[isbn]['checked_out']=s_id
 
     # And again save the data here
-
-    pass
+    with open(filename, 'w') as f:
+        json.dump({"students":students, "books":books}, f)
 
 
 def return_book(filename, isbn):
-    data = open_library(filename)
-    books = data[1]
+    students, books = open_library(filename)
 
     # Now ensure that the book is no longer checked out and save the changes
     # to the library.
+    if "checked_out" in books[isbn].keys():
+        del(books[isbn]["checked_out"])
 
-    pass
+    with open(filename, 'w') as f:
+        json.dump({"students":students, "books":books}, f)
 
 
 def status(filename):
-    data = open_library(filename)
-    books = data[1]
+    students, books = open_library(filename)
+    checked_out = []
+    available = []
 
     # Print out two lists - one of all books currently checked out,
     # and one of all available books.
+    for isbn, book in books.items():
+        if "checked_out" in book.keys():
+            checked_out.append(book)
+        else:
+            available.append(book)
+    print("Checked out:\n")
+    for book in checked_out:
+        print('%s - %s' % (book["title"], book["checked_out"]))
 
-    pass
-
+    print("\nAvailable:\n")
+    for book in available:
+        print('%s' % book["title"])
 
