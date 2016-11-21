@@ -93,3 +93,7 @@ ENV/
 
 #PyCharm Junk
 .idea*
+
+#Solution Files
+sols/
+.sol
