@@ -32,15 +32,10 @@ def open_library(filename):
     # Return the data we loaded from the file
     return students, books
 
-    # NOTE: The function will return a tuple (students, books)
-    # If you want either individually, you can use indexing as shown
-    # below in the test section
-
 
 def add_book(filename, isbn, title, author):
     # Here's a start
-    data = open_library(filename)
-    books = data[1]
+    students, books = open_library(filename)
 
     # Now how can we add books to the data?
     # In the space below, write code that adds the key isbn
@@ -53,8 +48,7 @@ def add_book(filename, isbn, title, author):
 
 
 def remove_book(filename, isbn):
-    data = open_library(filename)
-    books = data[1]
+    students, books = open_library(filename)
 
     # How can we *remove* an item from a dictionary?
     # Write code to delete the book keyed by isbn in the space below
@@ -64,8 +58,7 @@ def remove_book(filename, isbn):
 
 
 def check_out(filename, isbn, s_id):
-    data = open_library(filename)
-    books = data[1]
+    students, books = open_library(filename)
 
     # Find a way to mark a book as checked out. Be sure to associate
     # the book with the student who borrowed it!
@@ -77,8 +70,7 @@ def check_out(filename, isbn, s_id):
 
 
 def return_book(filename, isbn):
-    data = open_library(filename)
-    books = data[1]
+    students, books = open_library(filename)
 
     # Now ensure that the book is no longer checked out and save the changes
     # to the library.
