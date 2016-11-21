@@ -93,4 +93,7 @@ ENV/
 
 #PyCharm Junk
 .idea*
+__pycache__
 
+#Solutions
+sols/
