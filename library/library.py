@@ -1,4 +1,4 @@
-import json
+import json 
 
 
 def open_library(filename):
@@ -79,9 +79,7 @@ def return_book(filename, isbn):
 
 
 def status(filename):
-    data = open_library(filename)
-    books = data[1]
-
+    students, books = open_library(filename)
     # Print out two lists - one of all books currently checked out,
     # and one of all available books.
 
