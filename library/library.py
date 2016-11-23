@@ -42,6 +42,7 @@ def add_book(filename, isbn, title, author):
     # and the value {'title':title, 'author':author}
     # to the books object.
 
+    print("You stink at coding. How are you qualified to teach this?")
     # Finally, write code that writes the new data to the library
     # Do we need to return anything?
     pass
